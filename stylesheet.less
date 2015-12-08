@@ -1,0 +1,413 @@
+// -----------------------------
+// Table of Contents
+// -----------------------------
+
+//  1.  LESS Includes
+//  2.  Global
+//  3.  Main
+
+
+
+// -----------------------------
+//  1. LESS Includes
+// -----------------------------
+
+@import "@{templateLocal}/css/normalize.min.less";         // Normalize
+@import "@{templateLocal}/css/mixins.less";            // Mixins
+@import "@{templateLocal}/css/typography.less";            // Mixins
+
+
+
+// -----------------------------
+//  2. Colours
+// -----------------------------
+
+@orange: #fd9827;
+
+
+
+// -----------------------------
+//  3. Global Styles
+// -----------------------------
+
+
+// Flexbox Container
+// --------------------
+
+.flex-container {
+	.flex-display;
+	.flex-wrap(wrap);
+	position: relative;
+
+	@media @tablet-860px {
+		display: block;
+	}
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 1400px;
+	padding: 30px;
+}
+
+
+// Buttons
+// -----------------
+
+.button {
+	.border-radius(100px);
+	font-family: 'Montserrat', Helvetica Neue, Helvetica, sans-serif;
+	font-size: 14px;
+	font-size: 0.77777777777rem;
+	font-weight: 600;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	&.large {
+		padding: 14px 28px;
+	}
+
+	&.small {
+		padding: 7px 15px;
+	}
+}
+
+
+// Header
+// -------------
+
+.header .flex-container {
+	.justify-content(space-between);
+}
+
+.header {
+	padding: 40px 45px 20px;
+
+	@media only screen and (max-width: 1024px) {
+		padding: 35px 30px 15px;
+	}
+
+	@media @mobile-650px {
+		padding: 25px 20px 10px;
+	}
+}
+
+
+// Logo
+// ------
+
+.brand {
+	display: inline-block;
+}
+
+.logo img {
+	@media @tablet-860px {
+		max-width: 165px;
+	}
+
+	@media @mobile-650px {
+		max-width: 150px;
+	}
+}
+
+
+// Navigation
+// ---------------
+
+.navigation {
+	@media @tablet-860px {
+		height: 0;
+		opacity: 0;
+		visibility: hidden;	
+
+		.transition(all 0.3s ease-in-out);
+
+		&.active {
+			height: auto;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+
+		@media @tablet-860px {
+			margin: 12px 0 0;
+		}
+	}	
+
+	// Navigation list item
+	li {
+		display: inline-block;
+
+		@media @tablet-860px {
+			display: block;
+			text-align: center;
+		}
+	}
+
+	// Navigation link
+	a,
+	span {
+		color: white;
+		font-family: 'Montserrat', Helvetica Neue, Helvetica, sans-serif;
+		font-size: 14px;
+		font-size: 0.77777777777rem;
+		font-weight: 600;
+		letter-spacing: 1px;
+		padding-right: 30px;
+		text-decoration: none;
+		text-transform: uppercase;
+
+		-webkit-font-smoothing: antialiased;
+   		text-rendering: optimizeLegibility;
+
+		@media @tablet-860px {
+			display: block;
+			padding: 15px 0;
+		}
+	}
+
+	.button {
+		background-color: white;
+		color: black;
+
+		@media @tablet-860px {
+			margin-top: 10px;
+		}
+	}
+
+	// Removes padding from last navigation item
+	li:last-child a {
+		padding-right; 0;
+	}
+}
+
+// Navigation Toggle
+.navigation-toggle {
+	cursor: pointer;
+	display: inline-block;
+	padding: 10px 32px 10px 0;
+
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	opacity: 0;
+	visibility: hidden;
+
+	@media @tablet-860px {
+		opacity: 1;
+		visibility: visible;
+
+		span,
+		span:before,
+		span:after {
+			border-radius: 6px;
+			height: 2px;
+			width: 32px;
+			background: fade(white, 70%);
+			position: absolute;
+			display: block;
+			content: "";
+			.transition (all 0.3s ease-in-out);
+			&.active {
+				top: 0;
+			}
+		}
+
+		span:before {
+			top: -8px;
+		}
+
+		span:after {
+			bottom: -8px;
+		}
+
+		&.active span {
+			background-color: transparent;
+			&:before {
+				top: 0;
+				.transform(rotate(45deg));
+			}
+			&:after {
+				bottom: 0;
+				.transform(rotate(-45deg));
+			}
+		}	
+	}
+}
+
+
+
+// -----------------------------
+//  4. Homepage
+// -----------------------------
+
+
+// Feature
+// -----------
+
+.feature {
+	background: image('/img/feature-home.jpg') no-repeat;
+	background-size: cover;
+	color: white;
+	height: 100vh;
+
+	@media @tablet-860px {
+		height: auto;
+	}
+
+	// Feature content wrapper
+	&-content {
+		.flex-display;
+		.flex-wrap(wrap);
+		.justify-content(center);
+		.align-items(center);
+		padding: 0 30px;
+		height: 90%;
+		margin: 0 auto;
+		max-width: 768px;
+
+		@media @tablet-860px {
+			display: block;
+			height: auto;
+			max-width: none;
+			padding: 30px 30px 80px;
+			text-align: center;
+		}
+	}
+
+	// Feature heading
+	&-content h2 {
+		color: white;
+		.align-self(flex-end);
+		margin-bottom: 30px;
+		text-align: center;
+		text-transform: uppercase;
+
+		@media @tablet-860px {
+			font-size: 26px;
+		}
+	}
+
+	&-content .button {
+		background-color: orange;
+		color: white;
+		.align-self(flex-start);
+	}
+}
+
+
+// Promoted Features Section
+// ---------------------------
+
+.promoted-features {
+	padding: 4em 0;
+}
+
+.promoted-features ul {
+	margin: 0;
+	padding: 0;
+	.flex-wrap(nowrap);
+
+	li {
+		list-style: none;
+	}
+}
+
+
+// Footer
+// ---------
+
+.footer {
+	background: image('/img/feature-home.jpg') no-repeat;
+	background-position: center;
+	background-size: cover;
+	color: white;
+
+	.footer-signup {
+		padding: 2.5em 0 5em;
+		text-align: center;
+
+		@media @tablet-860px {
+			padding: 1em 0 2.5em;
+		}
+	}
+
+	.button {
+		background-color: orange;
+		color: white;
+		display: inline-block;
+		margin-top: 25px;
+		min-width: 110px;
+	}
+
+	.social a {
+	    background-size: 17px;
+	    vertical-align: middle;
+	    content: "";
+	    padding: 0px 11px;
+	    height: 16px;
+	    width: 16px;
+
+	    &.twitter {
+	    	background: image('/img/twitter-icn.svg') no-repeat;
+	    }
+
+	    &.facebook {
+	    	background: image('/img/facebook-icn.svg') no-repeat;
+	    }
+	}
+}
+
+.copyright {
+	margin-right: 30px;
+}
+
+.footer .navigation {
+	border-top: 1px solid fade(white, 15%);
+	.justify-content(space-between);
+	padding: 1.25em 0 0;
+
+	@media only screen and (max-width: 1024px) {
+		display: block;
+		height: auto;
+		opacity: 1;
+		visibility: visible;
+		text-align: center;
+	}
+
+	a,
+	span {
+		font-size: 13px;
+		font-size: 0.72222222222rem;
+		font-weight: 400;
+	}
+}
+
+.footer .navigation ul {
+	@media only screen and (max-width: 1024px) {
+		margin-bottom: 6px;
+	}
+
+	@media @tablet-860px {
+		&:first-child {
+			display: none;
+		}
+	}
+}
+
+.footer .navigation li {
+	@media @tablet-860px {
+		display: inline-block;
+	}
+}
+
+.footer .navigation li a {
+	@media @tablet-860px {
+		padding: 0 10px;
+	}
+}

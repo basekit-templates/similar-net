@@ -1,0 +1,28 @@
+<!doctype html>
+<html class="no-js" lang="{{ page.seoLang }}">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>{{ page.title }}</title>
+
+        <meta name="keywords" content="{{ page.keywords }}" />
+        <meta name="description" content="{{ page.description }}" />
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        {% include basekit.headScript %}
+
+        <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
+
+    </head>
+    <body class="{{ page.backgroundClass }}">
+
+        {% block content %}
+        {% endblock %}
+
+        {% include basekit.bodyScript %}
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="{{asset('js/main.js')}}"></script>
+
+    </body>
+</html>

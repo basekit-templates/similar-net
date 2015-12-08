@@ -1,0 +1,202 @@
+// -----------------------------
+//  Typography
+// -----------------------------
+
+
+
+//  Font Includes
+// --------------------------
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+
+
+//  Base Typography Settings
+// --------------------------
+
+html {
+    font: normal 112.5%/1.8 'PT Sans', Helvetica Neue, Helvetica, sans-serif; /* base font size 18px with 1.8 line-height */
+}
+
+body {
+    color: #414141;
+}
+
+
+
+//  Headings
+// -------------------------
+
+h1,
+h2,
+h3 {
+    color: #323232;
+    line-height: 1.3;
+    margin-top: 0;
+    text-rendering: optimizeLegibility;
+    font-family: 'Montserrat', Helvetica Neue, Helvetica, sans-serif;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    
+    @media @mobile-650px {
+    }
+}
+
+
+// Header One
+h1 {
+    font-size: 48px;
+    font-size: 2.66666666667rem; /* 48 / 18 */
+    margin-bottom: 8px;
+    margin-bottom: 0.47058823529rem;
+
+    @media @mobile-650px {
+        font-size: 42px;
+        font-size: 2.33333333333rem; /* 42 / 18 */
+    }
+}
+
+
+// Header Two
+h2 {
+    font-size: 42px;
+    font-size: 2.33333333333rem; /* 42 / 18 */
+    margin-bottom: 8px;
+    margin-bottom: 0.47058823529rem;
+    
+    @media @mobile-650px {
+       font-size: 32px; 
+       font-size: 1.77777777778rem; /* 32 / 18 */
+    }
+}
+
+
+// Header Three
+h3 {
+    font-size: 18px;
+    font-size: 1rem; /* 18 / 18 */
+    margin-bottom: 14.85px;
+    text-transform: uppercase;
+}
+
+
+// Header Four
+h4 {
+    font-size: 15px;
+    font-size: 0.83333333333rem; /* 15 / 18 */
+    font-weight: 400;
+    margin-bottom: 12px;
+    margin-top: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+
+// Header Five
+h5 {
+    font-family: 'Montserrat', Helvetica Neue, Helvetica, sans-serif;
+    font-size: 17px;
+    font-size: 0.94444444444rem; /* 17 / 18 */
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 0;
+    margin-top: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+
+// Image plus heading extra margin
+
+img {
+    +h2, +h3 {
+        margin-top: 30px;
+    }
+}
+
+
+
+// Paragraph Text & Anchor Links
+// ------------------------------
+
+p {
+    font-size: 18px;
+    font-size: 1rem;
+    margin: auto auto 1.5em; /* bottom margin for paragraphs */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+p + p {
+    margin-top: -0.5em; /* no top margin on subsequent paragraphs */
+}
+
+a {
+    .transition(color 0.5s ease);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    &:hover {
+        color: darken(black, 15%);
+    }
+}
+
+
+
+// Hyphens
+// -------------------------
+
+input,
+abbr,
+acronym,
+blockquote,
+code,
+kbd,
+q,
+samp,
+var {
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+
+
+// Code blocks
+// -------------------------
+
+pre code {
+    word-wrap: normal;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+}
+
+pre {
+    white-space: pre;
+}
+
+code {
+    white-space: pre;
+    font-family: monospace;
+}
+
+
+// Blockquotes
+// -------------------------
+
+
+blockquote p:last-of-type {
+    margin-bottom: -0.825em;
+}
+
+blockquote + figcaption {
+    display: block;
+    font-size: inherit;
+    text-align: right;
+}
+
+blockquote + figcaption:before {
+    content: "-";
+}
