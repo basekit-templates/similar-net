@@ -1,9 +1,25 @@
 {% extends "layout.twig" %}
 
-
 {% block content %}
 
+<!-- Header -->
+{% include 'includes/header-light.twig' %}
 
+<section class="subhead">
+    <div class="container">
+        <h3 class="text-center">Page subtitle</h3>
+    </div>
+</section>
+
+<div role="main">
+    <div class="container">
+
+        {{zone('main')|raw}}
+
+    </div>
+</div>
+
+<!-- Footer -->
+{% include 'includes/footer.twig' %}
 
 {% endblock %}
-

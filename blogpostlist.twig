@@ -1,0 +1,51 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<!-- Header -->
+{% include 'includes/header-light.twig' %}
+
+<!-- Main Section -->
+
+<div role="main" class="blog">
+
+    <section class="subhead">
+        <div class="container">
+            <ul class="blog-breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Basekit Developers Blog</a></li>
+            </ul>
+            <!--{{widget('blogsearch', 'blogsearch', {})|raw}}-->
+        </div>
+    </section>
+
+    <div class="container">
+
+        <div class="blog-main">
+            {{widget('blogpostlist', 'allblogposts', {})|raw}}
+        </div>
+
+        <div class="blog-sidebar">
+
+            <div class="blog-signup">
+                <h3>Ready to get started?</h3>
+                <p>Sign up for free and start building your website today.</p>
+                <!--<a href="/home#signup" class="button green">Sign up</a>-->
+            </div>
+
+            <div class="twitter-feed">
+                <h3>Latest tweets</h3>
+                {{widget('twitter', 'twitterfeed', {})|raw}}
+            </div>
+
+            </div>
+
+    </div>
+</div>
+
+
+<!-- Footer -->
+
+{% include 'includes/footer.twig' %}
+
+{% endblock %}

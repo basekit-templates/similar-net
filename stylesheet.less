@@ -3,8 +3,9 @@
 // -----------------------------
 
 //  1.  LESS Includes
-//  2.  Global
-//  3.  Main
+//  2.  Colours
+//  3.  Global
+//  4.	Footer
 
 
 
@@ -12,9 +13,17 @@
 //  1. LESS Includes
 // -----------------------------
 
-@import "@{templateLocal}/css/normalize.min.less";         // Normalize
-@import "@{templateLocal}/css/mixins.less";            // Mixins
-@import "@{templateLocal}/css/typography.less";            // Mixins
+@import "@{templateLocal}/css/normalize.min.less";         			// Normalize
+@import "@{templateLocal}/css/mixins.less";            				// Mixins
+@import "@{templateLocal}/css/typography.less";  					// Typography
+
+@import "@{templateLocal}/css/blog.less";
+@import "@{templateLocal}/css/default-page.less";           		// Default page
+@import "@{templateLocal}/css/home-page.less";           			// Home page
+@import "@{templateLocal}/css/pricing-page.less";            		// Pricing page
+@import "@{templateLocal}/css/features-page.less";      			// Features page
+
+@import "@{templateLocal}/css/slick.less";            				// Slick slider plugin
 
 
 
@@ -23,6 +32,10 @@
 // -----------------------------
 
 @orange: #fd9827;
+@light-grey: #f5f5f5;
+@grey: #a5a5a5;
+@dark-grey: #414141;
+@black: #323232;
 
 
 
@@ -44,10 +57,22 @@
 	}
 }
 
+
+// Container
+// --------------------
+
 .container {
 	margin: 0 auto;
 	max-width: 1400px;
 	padding: 30px;
+
+	@media @tablet-860px {
+		padding: 20px 30px;
+	}
+
+	@media @mobile-650px {
+		padding: 10px 25px;
+	}
 }
 
 
@@ -60,15 +85,68 @@
 	font-size: 14px;
 	font-size: 0.77777777777rem;
 	font-weight: 600;
+	letter-spacing: 1px;
 	text-decoration: none;
 	text-transform: uppercase;
+	text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.075);
+	.transition(all 0.5s ease);
+
+	@media @mobile-650px {
+		display: block;
+	}
 
 	&.large {
 		padding: 14px 28px;
+
+		@media @mobile-650px {
+			padding: 14px 22px;
+		}
 	}
 
 	&.small {
 		padding: 7px 15px;
+
+		@media @mobile-650px {
+			padding: 12px;
+		}
+	}
+
+	&.button-video {
+		background-color: transparent;
+		line-height: 25px;
+		margin-left: 28px;
+		padding: 14px 28px 14px 0;
+		position: relative;
+	}
+
+	&.button-video:before {
+		.border-radius(100px);
+		content: "\25b6";
+		display: inline-block;
+		font-size: 10px;
+		margin-right: 6px;
+		position: relative;
+		text-align: center;
+		width: 28px;
+	}
+
+	&.button-video:after {
+		border: 3px solid white;
+		.border-radius(100px);
+		content: "";
+		display: inline-block;
+		position: absolute;
+		left: 0;
+		height: 19px;
+		width: 19px;
+
+		@media @tablet-860px {
+			top: 11px;
+		}
+	}
+
+	&:hover {
+		.transition(all 0.5s ease);
 	}
 }
 
@@ -80,6 +158,7 @@
 	.justify-content(space-between);
 }
 
+// Global header styles
 .header {
 	padding: 40px 45px 20px;
 
@@ -92,9 +171,21 @@
 	}
 }
 
+// Header light colouring
+.header-light {
+	background-color: white;
+	border-bottom: 1px solid darken(@light-grey, 5%);
+
+	// Adds a maximum width to the header container
+	.flex-container {
+		margin: 0 auto;
+		max-width: 1400px;
+	}
+}
+
 
 // Logo
-// ------
+// ---------
 
 .brand {
 	display: inline-block;
@@ -114,17 +205,64 @@
 // Navigation
 // ---------------
 
+// Light header navigation and button colouring
+.header-light .navigation {
+	a, span {
+		color: @grey;
+	}
+
+	a:hover,
+	span:hover,
+	&.selected {
+		color: @black;
+	}
+
+	.button {
+		background-color: @orange;
+		color: white;
+	}
+
+	.button:hover {
+		background-color: darken(@orange, 7%);
+		color: white;
+	}
+}
+
+// Dark header navigation and button colouring
+.header-dark {
+	a, span {
+		color: fade(white, 75%);
+	}
+
+	a:hover,
+	span:hover,
+	&.selected {
+		color: white;
+	}
+
+	.button {
+		background-color: white;
+		color: @black;
+		text-shadow: none;
+	}
+
+	.button:hover {
+		background-color: darken(white, 10%);
+		color: @black;
+	}
+}
+
+// Global navigation styles
 .navigation {
 	@media @tablet-860px {
 		height: 0;
 		opacity: 0;
-		visibility: hidden;	
-
-		.transition(all 0.3s ease-in-out);
+		visibility: hidden;
 
 		&.active {
 			height: auto;
 			opacity: 1;
+			.transition(all 0.5s ease-in-out);
 			visibility: visible;
 		}
 	}
@@ -136,7 +274,11 @@
 		@media @tablet-860px {
 			margin: 12px 0 0;
 		}
-	}	
+
+		@media @mobile-650px {
+			margin: 0px 0 15px;
+		}
+	}
 
 	// Navigation list item
 	li {
@@ -151,7 +293,6 @@
 	// Navigation link
 	a,
 	span {
-		color: white;
 		font-family: 'Montserrat', Helvetica Neue, Helvetica, sans-serif;
 		font-size: 14px;
 		font-size: 0.77777777777rem;
@@ -160,7 +301,6 @@
 		padding-right: 30px;
 		text-decoration: none;
 		text-transform: uppercase;
-
 		-webkit-font-smoothing: antialiased;
    		text-rendering: optimizeLegibility;
 
@@ -171,9 +311,6 @@
 	}
 
 	.button {
-		background-color: white;
-		color: black;
-
 		@media @tablet-860px {
 			margin-top: 10px;
 		}
@@ -185,16 +322,14 @@
 	}
 }
 
-// Navigation Toggle
+// Global navigation toggle styles
 .navigation-toggle {
 	cursor: pointer;
 	display: inline-block;
 	padding: 10px 32px 10px 0;
-
 	position: absolute;
 	right: 0;
 	top: 0;
-
 	opacity: 0;
 	visibility: hidden;
 
@@ -208,7 +343,6 @@
 			border-radius: 6px;
 			height: 2px;
 			width: 32px;
-			background: fade(white, 70%);
 			position: absolute;
 			display: block;
 			content: "";
@@ -227,7 +361,7 @@
 		}
 
 		&.active span {
-			background-color: transparent;
+			background-color: transparent!important;
 			&:before {
 				top: 0;
 				.transform(rotate(45deg));
@@ -236,113 +370,64 @@
 				bottom: 0;
 				.transform(rotate(-45deg));
 			}
-		}	
+		}
+	}
+}
+
+// Dark header navigation toggle colouring
+.header-dark .navigation-toggle {
+	span,
+	span:before,
+	span:after {
+		background-color: fade(white, 70%);
+	}
+}
+
+// Light header navigation toggle colouring
+.header-light .navigation-toggle {
+	span,
+	span:before,
+	span:after {
+		background-color: fade(black, 60%);
 	}
 }
 
 
 
 // -----------------------------
-//  4. Homepage
+//  4. Footer
 // -----------------------------
-
-
-// Feature
-// -----------
-
-.feature {
-	background: image('/img/feature-home.jpg') no-repeat;
-	background-size: cover;
-	color: white;
-	height: 100vh;
-
-	@media @tablet-860px {
-		height: auto;
-	}
-
-	// Feature content wrapper
-	&-content {
-		.flex-display;
-		.flex-wrap(wrap);
-		.justify-content(center);
-		.align-items(center);
-		padding: 0 30px;
-		height: 90%;
-		margin: 0 auto;
-		max-width: 768px;
-
-		@media @tablet-860px {
-			display: block;
-			height: auto;
-			max-width: none;
-			padding: 30px 30px 80px;
-			text-align: center;
-		}
-	}
-
-	// Feature heading
-	&-content h2 {
-		color: white;
-		.align-self(flex-end);
-		margin-bottom: 30px;
-		text-align: center;
-		text-transform: uppercase;
-
-		@media @tablet-860px {
-			font-size: 26px;
-		}
-	}
-
-	&-content .button {
-		background-color: orange;
-		color: white;
-		.align-self(flex-start);
-	}
-}
-
-
-// Promoted Features Section
-// ---------------------------
-
-.promoted-features {
-	padding: 4em 0;
-}
-
-.promoted-features ul {
-	margin: 0;
-	padding: 0;
-	.flex-wrap(nowrap);
-
-	li {
-		list-style: none;
-	}
-}
-
-
-// Footer
-// ---------
 
 .footer {
-	background: image('/img/feature-home.jpg') no-repeat;
+	background: image('/img/footer.jpg') no-repeat;
 	background-position: center;
 	background-size: cover;
 	color: white;
 
 	.footer-signup {
-		padding: 2.5em 0 5em;
+		padding: 2.5em 0 4.5em;
 		text-align: center;
 
 		@media @tablet-860px {
-			padding: 1em 0 2.5em;
+			padding: 2em 0 2.5em;
 		}
 	}
 
 	.button {
-		background-color: orange;
+		background-color: @orange;
 		color: white;
 		display: inline-block;
-		margin-top: 25px;
-		min-width: 110px;
+		margin-top: 28px;
+		padding: 12px 26px;
+		min-width: 100px;
+	}
+
+	h5 {
+		color: darken(white, 10%);
+	}
+
+	a {
+		color: white;
 	}
 
 	.social a {
@@ -380,11 +465,25 @@
 		text-align: center;
 	}
 
+	@media @tablet-860px {
+		padding: 1em 0 0;
+	}
+
+	@media @mobile-650px {
+		padding-top: 0.25em;
+	}
+
 	a,
 	span {
+		color: darken(white, 20%);
 		font-size: 13px;
 		font-size: 0.72222222222rem;
 		font-weight: 400;
+	}
+
+	a:hover,
+	span:hover {
+		color: white;
 	}
 }
 

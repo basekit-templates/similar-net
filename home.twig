@@ -4,56 +4,123 @@
 
 <div class="feature" role="feature">
 
+	<section class="editor-video">
+		<div class="video">
+			<div class="close-icon"></div>
+			<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/j5hr9rOgcJE?rel=0&amp;controls=0&amp;showinfo=0' frameborder='0' allowfullscreen></iframe></div>
+		</div>
+	</section>
+
 	<!-- Header -->
-	{% include 'includes/header.twig' %}
+	{% include 'includes/header-dark.twig' %}
 
 	<div class="feature-content">
 		<h2>Create a website to share with the world</h2>
-		<a class="button large" href="/signup">Get Started</a>
+		<a class="button large" href="/signup">Try it for free</a>
+		<a class="button large button-video">Watch video</a>
 	</div>
 
 </div>
 
 <div role="main">
-	<div class="container">
 
-		<section class="promoted-features">
+	<section class="promoted-features">
 
+		<!--<div class="container text-center">
+			<h3>Hassle free web building</h3>
+			<h5>Simple set up, painless building and an effortless way to publish your site.</h5>
+		</div>-->
+
+		<div class="container">
 			<ul class="flex-container">
-				<li>
-					<h3>Drag &amp; Drop</h3>
-					<img src="">
+				<li class="text-center">
+					<h4>Drag &amp; Drop</h4>
+					<img src="{{asset('img/drag-n-drop.png')}}">
 					<p>Making a website has never been easier. Drag and drop images and text onto your site, there’s no coding required.</p>
 				</li>
 
-				<li>
-					<h3>Made For Mobile</h3>
-					<img src="">
+				<li class="text-center">
+					<h4>Made For Mobile</h4>
+					<img src="{{asset('img/made-for-mobile.png')}}">
 					<p>Our intuitive website builder makes it easy to create a beautiful website that works on all devices.</p>
 				</li>
 
-				<li>
-					<h3>Sell Online</h3>
-					<img src="">
+				<li class="text-center">
+					<h4>Sell Online</h4>
+					<img src="{{asset('img/sell-online.png')}}">
 					<p>Set up an online shop and start taking payments instantly from anywhere in the world.</p>
 				</li>
 			</ul>
+		</div>
 
-		</section>
+	</section>
 
-		<section class="editor-video">
-		</section>
 
-		<section class="template-preview">
-		</section>
+	<section class="template-preview">
 
-		<section class="testimonial">
-		</section>
+		<div class="container text-center">
+			<h3>Professionally designed templates</h3>
+			<h5>Your customers can choose from over 100 professional designs.</h5>
+		</div>
 
-	</div>
+		<div class ="flex-container">
+			<ul class="templates">
+				<li><img src="{{asset('img/masonry.jpg')}}"></li>
+				<li><img src="{{asset('img/people.jpg')}}"></li>
+				<li><img src="{{asset('img/odense.jpg')}}"></li>
+				<li><img src="{{asset('img/balkan.jpg')}}"></li>
+				<li><img src="{{asset('img/sense.jpg')}}"></li>
+				<li><img src="{{asset('img/skate.jpg')}}"></li>
+				<li><img src="{{asset('img/people.jpg')}}"></li>
+				<li><img src="{{asset('img/odense.jpg')}}"></li>
+			</ul>
+
+			<ul class="templates-nav">
+				<li><img src="{{asset('img/masonry.jpg')}}"></li>
+				<li><img src="{{asset('img/people.jpg')}}"></li>
+				<li><img src="{{asset('img/odense.jpg')}}"></li>
+				<li><img src="{{asset('img/balkan.jpg')}}"></li>
+				<li><img src="{{asset('img/sense.jpg')}}"></li>
+				<li><img src="{{asset('img/skate.jpg')}}"></li>
+				<li><img src="{{asset('img/people.jpg')}}"></li>
+				<li><img src="{{asset('img/odense.jpg')}}"></li>
+			</ul>
+		</div>
+
+	</section>
+
+	<!--<section class="testimonial">
+		<div class="container">
+		</div>
+	</section>-->
+
 </div>
 
 <!-- Footer -->
 {% include 'includes/footer.twig' %}
 
+{% endblock %}
+
+{% block bodyscripts %}
+	<script src="{{asset('js/slick.min.js')}}"></script>
+
+	<script>
+		$('.templates').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: true,
+			asNavFor: '.templates-nav'
+		});
+		$('.templates-nav').slick({
+			slidesToShow: 8,
+			slidesToScroll: 1,
+			asNavFor: '.templates',
+			centerPadding: 30,
+			dots: false,
+			arrows: false,
+			focusOnSelect: true,
+			slidesPerRow: 2
+		});
+	</script>
 {% endblock %}

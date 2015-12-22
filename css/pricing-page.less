@@ -1,0 +1,326 @@
+// -----------------------------
+//  Pricing Page
+// -----------------------------
+
+
+// Pricing page background
+// ---------------------------
+
+.pricing {
+    background-color: #f5f5f5;
+    padding: 3em 0 4em;
+
+    @media @tablet-860px {
+        padding: 1em 0 2em;
+    }
+}
+
+
+// Pricing plan description
+// -----------------------------
+
+.plan-descriptions {
+    .flex(1 0 24%);
+    margin-bottom: 0;
+    padding-top: 172px;
+
+     @media only screen and (max-width: 1024px) {
+        padding-top: 147px;
+     }
+
+    @media @tablet-860px {
+        display: none;
+        padding: 0;
+        visibility: hidden;
+    }
+
+    li {
+        border-bottom: 1px solid #E8E8E8;
+        padding: 10px 10px 10px 0;
+        font-family: Montserrat;
+        font-weight: 400;
+        font-size: 15px;
+        color: #6F6C6C;
+        position: relative;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+
+        @media only screen and (max-width: 1024px) {
+            font-size: 14px;
+            padding: 9px 10px 9px 0;
+        }
+    }
+
+    li:first-child {
+        border-top: 1px solid #E8E8E8;
+    }
+}
+
+// Description tooltip
+[data-tooltip] {
+    position: relative;
+
+    &:before {
+        color: fade(@dark-grey, 90%);
+        font-size: 14px;
+        line-height: 0;
+        bottom: 4px;
+        left: 10px;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    &:after {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        content: attr(data-tooltip);
+        padding: 6px 10px;
+        left: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        background: fade(@dark-grey, 90%);
+        color: white;
+        z-index: 2;
+        border-radius: 2px;
+        top: 100%;
+        max-width: 80%;
+    }
+
+    &:hover {
+        &:after,
+        &:before {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &:before {
+        content: "\25b2";
+    }
+}
+
+
+// Pricing table flex container
+// --------------------------------
+
+.pricing-table {
+    .flex-display(flex);
+    .flex-wrap(nowrap);
+    .justify-content(space-between);
+
+    // Default list styling
+    ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+    }
+
+    // Pricing table text
+    p {
+        color: #7d7d7d;
+        font-family: 'Montserrat', Helvetica Neue, Helvetica, sans-serif;
+        font-size: 15px;
+        line-height: 1;
+        margin-bottom: 0;
+
+        @media only screen and (max-width: 1024px) {
+            font-size: 14px;
+        }
+    }
+}
+
+
+// Pricing plan benefits
+// --------------------------------
+
+.pricing-plans {
+    .flex-display(flex);
+    .flex(1 0 66%);
+    -webkit-box-shadow: 0px 0px 35px 0px #E8E5E5;
+    -moz-box-shadow: 0px 0px 35px 0px #E8E5E5;
+    box-shadow: 0px 0px 35px 0px #E8E5E5;
+
+    @media @tablet-860px {
+        .flex-wrap(wrap);
+        .flex(1 0 100%);
+    }
+
+    @media @mobile-650px {
+        display: block;
+    }
+
+    // Sets the pricing plan column width
+    ul {
+        background-color: white;
+        .flex(1 0 19%);
+        margin: 0;
+        position: relative;
+        text-align: center;
+
+        @media @tablet-860px {
+            .flex(1 0 50%);
+        }
+
+        // Adds a border to the right of each list
+        &:after {
+            border-right: 1px solid #ececec;
+            content: "";
+            position: absolute;
+            height: 94%;
+            right: 0;
+            top: 51px;
+        }
+
+        li {
+            padding: 16px 12px;
+
+            @media only screen and (max-width: 1024px) {
+                padding: 14px 12px;
+            }
+
+            @media @tablet-860px {
+                padding: 14px 50px;
+                text-align: left;
+            }
+
+            @media @mobile-650px {
+                display: none;
+            }
+        }
+
+        li:first-child {
+            padding: 0;
+
+            @media @tablet-860px {
+                text-align: center;
+            }
+
+            @media @mobile-650px {
+                display: block;
+            }
+        }
+
+        // Every other row has a slight background
+        li:nth-child(even) {
+            background-color: #fbfbfb;
+            border-bottom: 1px solid #f6f6f6;
+            border-top: 1px solid #f6f6f6;
+        }
+    }
+
+    ul.open li {
+        @media @mobile-650px {
+            display: block;
+        }
+    }
+
+    p span {
+        display: none;
+        visibility: hidden;
+
+        @media @tablet-860px {
+            color: #AFAFAF;
+            font-size: 15px;
+            padding-left: 1px;
+            display: inline;
+            visibility: visible;
+        }
+    }
+}
+
+// Default price plan styling
+.price-plan {
+    background: @black;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 16px 10px;
+    margin: 0;
+    text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
+
+    @media only screen and (max-width: 1024px) {
+        font-size: 13px;
+    }
+
+    // Highlighed price plan styling
+    &.featured {
+        background: @orange;
+        position: relative;
+    }
+}
+
+// Price text styling
+.price {
+    font-size: 48px;
+    letter-spacing: 0;
+    margin-bottom: 0;
+    padding: 30px 15px;
+
+    @media only screen and (max-width: 1024px) {
+        font-size: 40px;
+        padding: 25px 15px;
+    }
+
+    @media @tablet-860px {
+        font-size: 46px;
+    }
+
+    &:before,
+    &:after {
+        position: relative;
+    }
+
+    // Adds dollar sign before every pricing
+    &:before {
+        content: "$";
+        font-size: 15px;
+        font-weight: 400;
+        left: -2px;
+        top: -22px;
+    }
+
+    // Adds month after every pricing
+    &:after {
+        color: #a1a1a1;
+        content: "/MONTH";
+        font-size: 13px;
+        position: relative;
+        bottom: 0;
+        @media only screen and (max-width: 1024px) {
+            font-size: 11px;
+        }
+    }
+}
+
+// Global tick and cross styles for pricing table
+.tick,
+.cross {
+    height: 15px;
+    width: 20px;
+
+    @media @tablet-860px {
+        background-position: right;
+        width: 100%;
+    }
+}
+
+// Included tick
+.tick {
+    background: image('/img/tick.png') no-repeat;
+
+    @media @tablet-860px {
+        background-position: right;
+    }
+}
+
+// Unavailable cross
+.cross {
+    background: image('/img/cross.png') no-repeat;
+
+    @media @tablet-860px {
+        background-position: right;
+    }
+}
