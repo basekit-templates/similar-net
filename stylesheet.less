@@ -18,6 +18,7 @@
 @import "@{templateLocal}/css/typography.less";  					// Typography
 
 @import "@{templateLocal}/css/blog.less";
+@import "@{templateLocal}/css/login-form.less";      			    // Login form
 @import "@{templateLocal}/css/default-page.less";           		// Default page
 @import "@{templateLocal}/css/home-page.less";           			// Home page
 @import "@{templateLocal}/css/pricing-page.less";            		// Pricing page
@@ -113,10 +114,15 @@
 
 	&.button-video {
 		background-color: transparent;
+		cursor: pointer;
 		line-height: 25px;
 		margin-left: 28px;
 		padding: 14px 28px 14px 0;
 		position: relative;
+
+		@media @mobile-650px {
+			margin-top: 10px;
+		}
 	}
 
 	&.button-video:before {
@@ -141,7 +147,11 @@
 		width: 19px;
 
 		@media @tablet-860px {
-			top: 11px;
+			top: 12px;
+		}
+
+		@media @mobile-650px {
+			top: initial;
 		}
 	}
 

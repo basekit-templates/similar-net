@@ -1,0 +1,23 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<!-- Header -->
+{% include 'includes/header-light.twig' %}
+
+<div role="main" class="login">
+    <div class="container">
+
+		{{widget('signup', 'signup', {})|raw}}
+
+		<div class="forgot-password">
+			<h6><a href="/forgot-password">Forgot your password?</a></h6>
+		</div>
+
+	</div>
+</div>
+
+<!-- Footer -->
+{% include 'includes/footer.twig' %}
+
+{% endblock %}

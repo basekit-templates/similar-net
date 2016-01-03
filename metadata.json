@@ -2,7 +2,7 @@
     "name": "Similar",
     "thumbnail": "thumbnail.png",
     "widgetVersion":2,
-    "pageTypes": ["home", "pricing", "features", "features-2", "blogpostlist", "blogpost"],
+    "pageTypes": ["home", "pricing", "features", "features-2", "blogpostlist", "blogpost", "login", "signup"],
     "images": [
         "images/feature.jpg",
         "images/logo.png"
