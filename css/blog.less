@@ -104,7 +104,7 @@
 .blog-main {
     .flex(1 0 auto);
     padding: 2em 0;
-    width: 62%;
+    width: 64%;
 
     @media @tablet-860px {
         width: 100%;
@@ -160,14 +160,14 @@
         }
 
         &:hover {
-            color: @dark-grey;
+            color: darken(@dark-grey, 5%);
         }
     }
 }
 
 .blog-main {
     .flex(1 0 auto);
-    max-width: 62%;
+    max-width: 64%;
 
     @media @tablet-860px {
         display: block;
@@ -177,15 +177,15 @@
 
 .blog-sidebar {
     .flex(1 0 auto);
-    margin-left: 8%;
+    margin-left: 6%;
     padding: 2em 0;
-    width: 30%;
+    width: 28%;
 
     @media @tablet-860px {
         display: block;
         margin-left: 0;
         max-width: 100%;
-        padding-top: 2em;
+        padding: 0.25em 0 0 ;
         width: 100%;
     }
 
@@ -368,6 +368,10 @@
 .twitter-feed {
     margin: 1.5em 0;
 
+    @media @tablet-860px {
+        margin-top: 1.75em;
+    }
+
     .tweet-list {
         padding-left: 0;
         list-style: none;
@@ -395,7 +399,7 @@
     }
 
     .tweet-content a {
-        color: darken(@grey, 10%);
+        color: darken(@grey, 20%);
         text-decoration: none;
     }
 
@@ -575,10 +579,12 @@
         background-color: fade(white, 65%);
         color: @dark-grey;
         display: inline-block;
-        padding: 15px 20px;
+        margin-top: 10px;
+        margin-right: 10px;
+        padding: 12px 15px;
         font-family: 'Montserrat', Helvetica Neue, Helvetica, sans-serif;
         font-size: 11px;
-        font-weight: 600;
+        font-weight: 400;
         line-height: 14px;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -660,7 +666,7 @@
         margin-bottom: 35px;
 
         @media @mobile-650px {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .image-link {
@@ -687,8 +693,8 @@
         margin-bottom: 1.5rem;
 
         @media @mobile-650px {
-            font-size: 28px;
-            font-size: 1.647em;
+            font-size: 25px;
+            font-size: 1.38888888889em;
             line-height: 36px;
             margin-bottom: 1rem;
         }
@@ -716,6 +722,10 @@
         border-top: 1px solid rgb(232, 232, 232);
         margin: 3em 0 0;
         padding-top: 2em;
+
+        @media @tablet-860px {
+            margin-top: 2em;
+        }
     }
 
     .post-category,
