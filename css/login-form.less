@@ -133,24 +133,26 @@
 			}
 		}
 		.error {
-			color: darken(red, 10%);
+			color: #c00;
 			display: none;
-			font-size: 13px;
-			font-weight: 500;
+			font-size: 14px;
+			font-weight: 400;
 			&:before {
-				border: 2px solid lighten(red, 20%);
+				border: 2px solid lighten(#c00, 10%);
 				border-radius: 50px;
-				color: lighten(red, 5%);
+				color: lighten(#c00, 5%);
 				content: "!";
 				display: inline-block;
-				font-size: 10px;
-				font-weight: 800;
+				font-size: 12px;
+				font-weight: 600;
 				line-height: 15px;
 				margin-right: 6px;
 				position: relative;
 				height: 16px;
 				width: 16px;
 				vertical-align: bottom;
+				text-indent: 7px;
+				top: -3px;
 			}
 		}
 	}
@@ -173,7 +175,10 @@
 }
 
 .js-error {
-	margin: 0.5em 0;
+	color: #c00;
+	font-size: 14px;
+	font-weight: 400;
+	margin: 0 0 0.75em;
 }
 
 .forgot-password {
