@@ -8,20 +8,17 @@
 <div role="main" class="login">
     <div class="container">
 
+        <h3 class="text-center">Log in to your account</h3>
 		{{widget('userlogin', 'userlogin', {})|raw}}
 
 		<div class="forgot-password">
 			<h6><a href="/forgot-password">Forgot your password?</a></h6>
 		</div>
 
-		{{widget('forgottenpassword', 'forgottenpassword', {})|raw}}
-
-		{{widget('resetpassword', 'resetpassword', {})|raw}}
-
 	</div>
 </div>
 
 <!-- Footer -->
-{% include 'includes/footer.twig' %}
+{% include 'includes/footer-small.twig' %}
 
 {% endblock %}
